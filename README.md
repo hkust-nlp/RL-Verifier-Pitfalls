@@ -72,17 +72,18 @@ The table below shows success rates (%) of representative hacking patterns again
 
 
 # Model Checkpoints
+We are releasing our customized verifier, [R1-Distill-Verifier-1.5B](https://huggingface.co/xxxxxx), as part of our open-source effort.
 
-We are open-sourcing the model checkpoints trained with different verifiers. You can download them from the following links:
+Additionally, we are open-sourcing multiple model checkpoints trained with different verifier configurations. You can access them via the links below:
+
+|Model|Verifier|Link|
+|---|---|---|
+|Qwen-2.5-7B|HuggingFace Verifier|[🤗](https://huggingface.co/xxxxxx)|
+|Qwen-2.5-7B|HF + DeepSeek-R1-Distill-Qwen-1.5B|[🤗](https://huggingface.co/xxxxxx)|
+|Qwen-2.5-7B|HF + R1-Distill-Verifier-1.5B|[🤗](https://huggingface.co/xxxxxx)|
 
 
-- [Qwen-2.5-7B-Verifier-HF](https://huggingface.co/xxxxxx) -- Trained with Huggingface Verifier
-- [Qwen-2.5-7B-Verifier-R1-Qwen-1.5B](https://huggingface.co/xxxxxx) -- Trained with DeepSeek-R1-Distill-Qwen-1.5B as verifier 
-- [Qwen-2.5-7B-Verifier-R1-Verifier-1.5B](https://huggingface.co/xxxxxx) -- Trained with R1-Distill-Verifier-1.5B as verifier 
-
-And we also release the model checkpoints for our customized verifier R1-Distill-Verifier-1.5B, you can download it from the following link:
-
-- [R1-Distill-Verifier-1.5B](https://huggingface.co/xxxxxx)
+All these models are also in our [Huggingface Collection](https://huggingface.co/collections/hkust-nlp/xxxxxx). 
 
 
 # Quick Start
@@ -115,8 +116,7 @@ ray start --head --node-ip-address 0.0.0.0 --num-gpus 8
 # if you want to launch ray on more nodes, use
 ray start --address {MASTER-NODE-ADDRESS}:6379  --num-gpus 8
 ```
-The main script for training is train_grpo_math_tune_ray.sh. But you need to specify the required environment variables in setup_env.sh. Once configured, submit the training job from the master node.
-
+Edit `setup_env.sh` to configure environment variables. Then use `train_grpo_math_tune_ray.sh` to start training.
 
 Here are examples for running RL with different verifiers:
 
@@ -126,22 +126,18 @@ bash start_ray.sh train_grpo_math_tune.sh --genrm_enable False  --dataset_name d
 ```
 
 
-* DeepSeek-R1-Distill-Qwen-1.5B  as verifier with HybridEngine: 
+* DeepSeek-R1-Distill-Qwen-1.5B as verifier (with HybridEngine):
 Firstly download the model from huggingface repo [DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B), then: 
 ```bash
 bash start_ray.sh train_grpo_math_tune.sh  --genrm_enable True  --genrrm_prompt_type r1_wo_question --genrrm_model_name DeepSeek-R1-Distill-Qwen-1.5B --genrrm_temperature 0.6 --genrrm_top_p 0.95  --genrm_max_response_length 8192
 ```
 
 * Our Customized Verifier R1-Distill-Verifier-1.5B:
-Firstly download the model from huggingface repo [R1-Distill-Verifier-1.5B](https://huggingface.co/xxxxxx), then: 
+Firstly download the verifier from huggingface repo [R1-Distill-Verifier-1.5B](https://huggingface.co/xxxxxx), then: 
 
 ```bash
 bash start_ray.sh train_grpo_math_tune.sh  --genrm_enable True  --genrrm_prompt_type r1_with_question --genrrm_model_name R1-Distill-Verifier-1.5B --genrrm_temperature 0.6 --genrrm_top_p 0.95  --genrm_max_response_length 8192
 ```
-
-
-
-
 
 
 ### Evaluate
@@ -167,7 +163,7 @@ bash eval_math_nodes.sh \
 
 # Citation
 
-If you find this work useful, please consider citing:
+If you find this work helpful, please consider citing us:
 
 ```bibtex
 xxxx
@@ -175,5 +171,8 @@ xxxx
 
 
 # Acknowledgement
-We implement our reinforcement learning algorithm extending from [Verl](https://github.com/volcengine/verl). We utilize [vLLM](https://github.com/vllm-project/vllm) for inference and develop evaluation scripts based on [Qwen2.5-Math](https://github.com/QwenLM/Qwen2.5-Math/tree/main/evaluation). Particularly, we thank the developers of DeepSeek-R1 and Kimi-k1.5 for their innovation and contribution to the open-source community.
+We build our reinforcement learning algorithm as an extension of [Verl](https://github.com/volcengine/verl). During training, we incorporate the [Huggingface Math Verifier](https://github.com/huggingface/Math-Verify). For inference, we utilize [vLLM](https://github.com/vllm-project/vllm), and our evaluation scripts are developed based on [Qwen2.5-Math](https://github.com/QwenLM/Qwen2.5-Math/tree/main/evaluation). 
+
+We would like to especially thank the developers of DeepSeek-R1 and Kimi-K1.5 for their innovations and valuable contributions to the open-source community.
+
 
