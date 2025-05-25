@@ -19,7 +19,7 @@ In this paper, we investigate the reliability of verification systems used in re
 
 > Evaluation accuracy (**Left**) and Reward (**Right**) using different verifiers during RL training. In the **Right**, the "Training rewards" are from the verifier, while the "Oracle rewards" are from GPT-4.
 
-# Table of Contents
+## Table of Contents
 
 - [Overview](#verifying-mathematical-reasoning-for-reinforcement-learning-pitfalls-of-rule--and-model-based-verifiers)
 - [Main Takeaways](#-main-takeaways)
@@ -32,7 +32,7 @@ In this paper, we investigate the reliability of verification systems used in re
 - [Acknowledgement](#acknowledgement)
 
 
-# 🚩 Main Takeaways
+## 🚩 Main Takeaways
 Our study reveals critical limitations in both rule-based and model-based verifiers for RL in mathematical reasoning:
 
 * Rule-based verifiers achieve near-perfect precision but suffer from low recall. They fail to recognize mathematically correct answers expressed in varied formats — causing false negatives that hinder policy learning, especially when verifying advance models like R1-Distilled-Qwen. 
@@ -43,7 +43,7 @@ Our study reveals critical limitations in both rule-based and model-based verifi
 * A probe study using adversarial answer patterns reveals that most of the model-based verifiers are vulnerable to adversarial attacks, especially for generative verifiers (e.g., those using chain-of-thought reasoning). More will be discussed in the next section.
 
 
-# 🧨 When Good Verifiers Go Bad: Reward Hacking in RL Training
+## 🧨 When Good Verifiers Go Bad: Reward Hacking in RL Training
 
 
 Reward hacking arises when a policy model learns to exploit verifier weaknesses instead of genuinely improving reasoning. As shown in the figure above, we observed:
@@ -52,7 +52,7 @@ Reward hacking arises when a policy model learns to exploit verifier weaknesses 
 - **Model collapse** after prolonged training with certain fine-tuned model-based verifiers (e.g., R1-Distill-Verifier-1.5B), where performance deteriorates despite apparent reward improvements.
 - **Adversarial behavior**, where models exploit simple tokens (e.g., `{`) or gibberish text to bypass verification.
 
-## 🛡️ Probing Verifier Robustness
+### 🛡️ Probing Verifier Robustness
 
 We design and release a **"Hacking Dataset"** of 13+ adversarial patterns (e.g., gibberish, HTML tags, empty symbols) to evaluate verifier robustness. The dataset is available at [rl-verifier-pitfalls_hacking_data](https://huggingface.co/datasets/hkust-nlp/rl-verifier-pitfalls_hacking_data).
 
@@ -62,7 +62,7 @@ Key findings:
 
 - Generative verifiers (e.g., general-verifier) tend to be more vulnerable than discriminative ones and show notably higher attack success rates compared to discriminative ones (e.g., xVerify).
 
-## 🧪 Verifier Vulnerability Analysis
+### 🧪 Verifier Vulnerability Analysis
 
 The table below shows success rates (%) of representative hacking patterns against various verifiers. A lower success rate indicates better robustness to attacks (lower is better).
 
@@ -84,7 +84,7 @@ The table below shows success rates (%) of representative hacking patterns again
 
 
 
-# 💾 Model Checkpoints
+## 💾 Model Checkpoints
 We are releasing our customized verifier, [R1-Distill-Verifier-1.5B](https://huggingface.co/hkust-nlp/R1-Distill-Verifier-1.5B), as part of our open-source effort.
 
 Additionally, we are open-sourcing multiple model checkpoints trained with different verifier configurations. You can access them via the links below:
@@ -99,7 +99,7 @@ Additionally, we are open-sourcing multiple model checkpoints trained with diffe
 All these models are also in our [Huggingface Collection](https://huggingface.co/collections/hkust-nlp/rl-verifier-pitfalls-68329f54bd8fd397534bfe66). 
 
 
-# 🚀 Quick Start for RL Training
+## 🚀 Quick Start for RL Training
 
 
 ### Installation
@@ -174,7 +174,7 @@ bash eval_math_nodes.sh \
 
 
 
-# Citation
+## Citation
 
 If you find this work helpful, please consider citing us:
 
@@ -183,7 +183,7 @@ xxxx
 ```
 
 
-# Acknowledgement
+## Acknowledgement
 We build our reinforcement learning algorithm as an extension of [Verl](https://github.com/volcengine/verl). During training, we incorporate the [Huggingface Math Verifier](https://github.com/huggingface/Math-Verify). For inference, we utilize [vLLM](https://github.com/vllm-project/vllm), and our evaluation scripts are developed based on [Qwen2.5-Math](https://github.com/QwenLM/Qwen2.5-Math/tree/main/evaluation). 
 
 We would like to especially thank the developers of DeepSeek-R1 and Kimi-K1.5 for their innovations and valuable contributions to the open-source community.
