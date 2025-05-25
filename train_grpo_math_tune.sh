@@ -40,7 +40,6 @@ ROLLOUT_TENSOR_MODEL_PARALLEL_SIZE=2
 MICRO_ROLLOUT_BATCH_SIZE=1024
 REMOVE_PREVIOUS_CKPT=False
 APPLY_CHAT_TEMPLATE=False
-REJECTION_SAMPLE=False
 DUPL_ROLLOUT=True # enable this to fix this bug https://github.com/vllm-project/vllm/issues/14759
 
 
@@ -88,7 +87,6 @@ generate_suffix() {
       --format_penalty_value) suffix+="_format_penalty$2"; shift 2 ;;
       --remove_clip) suffix+="_remove_clip$2"; shift 2 ;;
       --apply_chat_template) suffix+="_applychat$2"; shift 2 ;;
-      --rejection_sample) suffix+="_rejection_sample$2"; shift 2 ;;
       --genrm_enable) suffix+="_genrm_enable$2"; shift 2 ;;
       --genrrm_model_name) suffix+="_genrrm$2"; shift 2 ;;
       --genrrm_prompt_type) suffix+="_genrrm_prompt_type$2"; shift 2 ;;
@@ -173,7 +171,6 @@ while [[ "$#" -gt 0 ]]; do
     --remove_clip) REMOVE_CLIP="$2"; shift 2 ;;
     --remove_previous_ckpt) REMOVE_PREVIOUS_CKPT="$2"; shift 2 ;;
     --apply_chat_template) APPLY_CHAT_TEMPLATE="$2"; shift 2 ;;
-    --rejection_sample) REJECTION_SAMPLE="$2"; shift 2 ;;
     --overwrite_run_name) OVERWRITE_RUN_NAME="$2"; shift 2 ;;
     --suffix) SUFFIX="$2"; shift 2 ;;
     *)
@@ -285,7 +282,6 @@ PYTHONUNBUFFERED=1 python -m verl.trainer.main_ppo \
     critic.ppo_micro_batch_size_per_gpu=4 \
     trainer.critic_warmup=0 \
     trainer.logger=['console','wandb'] \
-    trainer.rejection_sample=$REJECTION_SAMPLE \
     trainer.project_name=$PROJECT_NAME \
     trainer.experiment_name=$RUN_NAME \
     trainer.n_gpus_per_node=8 \

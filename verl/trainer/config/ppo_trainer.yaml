@@ -258,7 +258,7 @@ algorithm:
     kl_coef: 0.001
 
 trainer:
-  rejection_sample: True
+  rejection_sample: False
   rejection_sample_strict: False # if True, the number of valid samples must be larger than the training batch size, otherwise skip the batch
   oversample_multiplier: 2.0 # Multiple the training batch size by this factor to account for rejection sampling reduction.
   remove_clip: False # remove overlong response if True
