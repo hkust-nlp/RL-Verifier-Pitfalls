@@ -57,7 +57,7 @@ dependencies = [
     "word2number",
     "math-verify[antlr4_11_0]==0.6.0",
     "sandbox-fusion",
-    "ray[default]==2.10.0",
+    "ray[default]==2.46.0",
 ]
 
 # Optional dependencies (extras_require in setup.py)
