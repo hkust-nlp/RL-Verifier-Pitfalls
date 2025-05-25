@@ -28,8 +28,8 @@ In this paper, we investigate the reliability of verification systems used in re
   - [Verifier Vulnerability Analysis](#-verifier-vulnerability-analysis)
 - [Model Checkpoints](#-model-checkpoints)
 - [Quick Start for RL Training](#-quick-start-for-rl-training)
-- [Citation](#-citation)
-- [Acknowledgement](#-acknowledgement)
+- [Citation](#citation)
+- [Acknowledgement](#acknowledgement)
 
 
 # 🚩 Main Takeaways
