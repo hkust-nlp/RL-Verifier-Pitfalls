@@ -121,21 +121,21 @@ Here are examples for running RL with different verifiers:
 
 * Huggingface Verifier only: 
 ```bash
-bash start_ray.sh train_grpo_math_tune.sh --genrm_enable False  --dataset_name deepscaler_simplelr
+bash train_grpo_math_tune.sh --genrm_enable False  --dataset_name deepscaler_simplelr
 ```
 
 
 * DeepSeek-R1-Distill-Qwen-1.5B as verifier (with HybridEngine):
 Firstly download the model from huggingface repo [DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B), then: 
 ```bash
-bash start_ray.sh train_grpo_math_tune.sh  --genrm_enable True  --genrrm_prompt_type r1_wo_question --genrrm_model_name DeepSeek-R1-Distill-Qwen-1.5B --genrrm_temperature 0.6 --genrrm_top_p 0.95  --genrm_max_response_length 8192
+bash train_grpo_math_tune.sh  --genrm_enable True  --genrrm_prompt_type r1_wo_question --genrrm_model_name DeepSeek-R1-Distill-Qwen-1.5B --genrrm_temperature 0.6 --genrrm_top_p 0.95  --genrm_max_response_length 8192
 ```
 
 * Our Customized Verifier R1-Distill-Verifier-1.5B:
 Firstly download the verifier from huggingface repo [R1-Distill-Verifier-1.5B](https://huggingface.co/xxxxxx), then: 
 
 ```bash
-bash start_ray.sh train_grpo_math_tune.sh  --genrm_enable True  --genrrm_prompt_type r1_with_question --genrrm_model_name R1-Distill-Verifier-1.5B --genrrm_temperature 0.6 --genrrm_top_p 0.95  --genrm_max_response_length 8192
+bash train_grpo_math_tune.sh  --genrm_enable True  --genrrm_prompt_type r1_with_question --genrrm_model_name R1-Distill-Verifier-1.5B --genrrm_temperature 0.6 --genrrm_top_p 0.95  --genrm_max_response_length 8192
 ```
 
 
