@@ -1,6 +1,6 @@
 <div align="center">
 
-# Verifying Mathematical Reasoning for Reinforcement Learning: Pitfalls of Rule- and Model-based Verifiers
+# Pitfalls of Rule- and Model-based Verifiers: A Case Study on Mathematical Reasoning
 
 [![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2503.18892)  [![Hugging Face](https://img.shields.io/badge/verifier_pitfalls-fcd022?style=for-the-badge&logo=Huggingface&logoColor=000)](https://huggingface.co/collections/hkust-nlp/rl-verifier-pitfalls-68329f54bd8fd397534bfe66)
 
@@ -8,7 +8,7 @@
 
 
 
-This repo contains the resources for the paper "Verifying Mathematical Reasoning for Reinforcement Learning: Pitfalls of Rule- and Model-based Verifiers". 
+This repo contains the resources for the paper "Pitfalls of Rule- and Model-based Verifiers: A Case Study on Mathematical Reasoning."
 
 In this paper, we investigate the reliability of verification systems used in reinforcement learning for mathematical reasoning tasks. Specifically, we analyze the limitations of both rule-based and model-based verifiers, which are commonly used to provide reward signals in reinforcement learning with verifiable rewards (RLVR). We show that rule-based verifiers, while precise, often suffer from high false negative rates, especially as model outputs become more diverse or expressive. On the other hand, model-based verifiers, though more flexible and accurate in static settings, are vulnerable to reward hacking during dynamic RL training, where models exploit verifier weaknesses to gain unearned rewards.
 
@@ -118,7 +118,7 @@ To install from docker image or utilize Megatron-lm, please refer to [Verl's doc
 
 ### Training 
 
-As described in our paper, we train using the [DeepScaleR](https://huggingface.co/datasets/agentica-org/DeepScaleR-Preview-Dataset) dataset with prompts from [SimpleRL-Zoo](https://github.com/hkust-nlp/simpleRL-reason). We extend HybridEngine to support model-based verifiers, enabling GPU offloading during idle periods.
+As described in our paper, we train using the [DeepScaleR](https://huggingface.co/datasets/agentica-org/DeepScaleR-Preview-Dataset) dataset with prompts from [SimpleRL-Zoo](https://github.com/hkust-nlp/simpleRL-reason). The prepared dataset is available at [deepscaler_simplelr](https://huggingface.co/datasets/hkust-nlp/deepscaler_simplelr). We extend HybridEngine to support model-based verifiers, enabling GPU offloading during idle periods.
 
 The training leverages GRPO with Ray and vLLM for acceleration. First, launch a Ray cluster:
 ```bash
