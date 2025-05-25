@@ -78,9 +78,9 @@ Additionally, we are open-sourcing multiple model checkpoints trained with diffe
 
 |Model|Verifier|Link|
 |---|---|---|
-|Qwen-2.5-7B|HuggingFace Verifier|[🤗](https://huggingface.co/xxxxxx)|
-|Qwen-2.5-7B|HF + DeepSeek-R1-Distill-Qwen-1.5B|[🤗](https://huggingface.co/xxxxxx)|
-|Qwen-2.5-7B|HF + R1-Distill-Verifier-1.5B|[🤗](https://huggingface.co/xxxxxx)|
+|Qwen-2.5-7B-Verifier-HF|HuggingFace Verifier|[🤗](https://huggingface.co/hkust-nlp/Qwen-2.5-7B-Verifier-HF)|
+|Qwen-2.5-7B-Verifier-R1-Qwen-1.5B |HF + DeepSeek-R1-Distill-Qwen-1.5B|[🤗](https://huggingface.co/hkust-nlp/Qwen-2.5-7B-Verifier-R1-Qwen-1.5B)|
+|Qwen-2.5-7B-Verifier-R1-Verifier-1.5B |HF + R1-Distill-Verifier-1.5B|[🤗](https://huggingface.co/hkust-nlp/Qwen-2.5-7B-Verifier-R1-Verifier-1.5B)|
 
 
 All these models are also in our [Huggingface Collection](https://huggingface.co/collections/hkust-nlp/xxxxxx). 
@@ -105,10 +105,9 @@ To install from docker image or utilize Megatron-lm, please refer to [Verl's doc
 
 ### Training 
 
-As mentioned in our paper, our training data is from [DeepScaleR](https://huggingface.co/datasets/agentica-org/DeepScaleR-Preview-Dataset) with the prompt from [SimpleRL-Zoo](https://github.com/hkust-nlp/simpleRL-reason). As mentioned in our paper, we extend HybridEngine to the model-based verifier, allowing it to be offloaded from GPUs during idle periods. 
+As described in our paper, we train using the [DeepScaleR](https://huggingface.co/datasets/agentica-org/DeepScaleR-Preview-Dataset) dataset with prompts from [SimpleRL-Zoo](https://github.com/hkust-nlp/simpleRL-reason). We extend HybridEngine to support model-based verifiers, enabling GPU offloading during idle periods.
 
-
-The training process leverages GRPO with Ray and vLLM for acceleration. So firstly, you need to launch the ray cluster using the command below:
+The training leverages GRPO with Ray and vLLM for acceleration. First, launch a Ray cluster:
 ```bash
 # launch the master node of ray 
 ray start --head --node-ip-address 0.0.0.0 --num-gpus 8
