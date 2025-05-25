@@ -2,7 +2,7 @@
 
 # Verifying Mathematical Reasoning for Reinforcement Learning: Pitfalls of Rule- and Model-based Verifiers
 
-[![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2503.18892)  [![Hugging Face](https://img.shields.io/badge/verifier_pitfalls-fcd022?style=for-the-badge&logo=Huggingface&logoColor=000)](https://huggingface.co/collections/hkust-nlp/xxxxx)
+[![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2503.18892)  [![Hugging Face](https://img.shields.io/badge/verifier_pitfalls-fcd022?style=for-the-badge&logo=Huggingface&logoColor=000)](https://huggingface.co/collections/hkust-nlp/rl-verifier-pitfalls-68329f54bd8fd397534bfe66)
 
 </div>
 
@@ -72,7 +72,7 @@ The table below shows success rates (%) of representative hacking patterns again
 
 
 # Model Checkpoints
-We are releasing our customized verifier, [R1-Distill-Verifier-1.5B](https://huggingface.co/xxxxxx), as part of our open-source effort.
+We are releasing our customized verifier, [R1-Distill-Verifier-1.5B](https://huggingface.co/hkust-nlp/R1-Distill-Verifier-1.5B), as part of our open-source effort.
 
 Additionally, we are open-sourcing multiple model checkpoints trained with different verifier configurations. You can access them via the links below:
 
@@ -83,7 +83,7 @@ Additionally, we are open-sourcing multiple model checkpoints trained with diffe
 |Qwen-2.5-7B-Verifier-R1-Verifier-1.5B |HF + R1-Distill-Verifier-1.5B|[🤗](https://huggingface.co/hkust-nlp/Qwen-2.5-7B-Verifier-R1-Verifier-1.5B)|
 
 
-All these models are also in our [Huggingface Collection](https://huggingface.co/collections/hkust-nlp/xxxxxx). 
+All these models are also in our [Huggingface Collection](https://huggingface.co/collections/hkust-nlp/rl-verifier-pitfalls-68329f54bd8fd397534bfe66). 
 
 
 # Quick Start
@@ -132,7 +132,7 @@ bash train_grpo_math_tune.sh  --genrm_enable True  --genrrm_prompt_type r1_wo_qu
 ```
 
 * Our Customized Verifier R1-Distill-Verifier-1.5B:
-Firstly download the verifier from huggingface repo [R1-Distill-Verifier-1.5B](https://huggingface.co/xxxxxx), then: 
+Firstly download the verifier from huggingface repo [R1-Distill-Verifier-1.5B](https://huggingface.co/hkust-nlp/R1-Distill-Verifier-1.5B), then: 
 
 ```bash
 bash train_grpo_math_tune.sh  --genrm_enable True  --genrrm_prompt_type r1_with_question --genrrm_model_name R1-Distill-Verifier-1.5B --genrrm_temperature 0.6 --genrrm_top_p 0.95  --genrm_max_response_length 8192
