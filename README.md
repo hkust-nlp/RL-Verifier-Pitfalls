@@ -91,7 +91,7 @@ Additionally, we are open-sourcing multiple model checkpoints trained with diffe
 
 |Model|Verifier|Link|
 |---|---|---|
-|Qwen-2.5-7B-Verifier-HF|[HuggingFace Math Verifier](https://github.com/huggingface/Math-Verify)|[🤗](https://huggingface.co/hkust-nlp/Qwen-2.5-7B-Verifier-HF)|
+|Qwen-2.5-7B-Verifier-HF|[HuggingFace Math Verifier (HF)](https://github.com/huggingface/Math-Verify)|[🤗](https://huggingface.co/hkust-nlp/Qwen-2.5-7B-Verifier-HF)|
 |Qwen-2.5-7B-Verifier-R1-Qwen-1.5B |HF + [DeepSeek-R1-Distill-Qwen-1.5B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B)|[🤗](https://huggingface.co/hkust-nlp/Qwen-2.5-7B-Verifier-R1-Qwen-1.5B)|
 |Qwen-2.5-7B-Verifier-R1-Verifier-1.5B |HF + [R1-Distill-Verifier-1.5B](https://huggingface.co/hkust-nlp/R1-Distill-Verifier-1.5B)|[🤗](https://huggingface.co/hkust-nlp/Qwen-2.5-7B-Verifier-R1-Verifier-1.5B)|
 |Qwen-2.5-7B-Verifier-general-verifier |HF + [general-verifier](https://huggingface.co/TIGER-Lab/general-verifier)|[🤗](https://huggingface.co/hkust-nlp/Qwen-2.5-7B-Verifier-general-verifier)|
