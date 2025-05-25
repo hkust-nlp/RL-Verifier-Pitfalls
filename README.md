@@ -19,6 +19,17 @@ In this paper, we investigate the reliability of verification systems used in re
 
 > Evaluation accuracy (**Left**) and Reward (**Right**) using different verifiers during RL training. In the **Right**, the "Training rewards" are from the verifier, while the "Oracle rewards" are from GPT-4.
 
+# Table of Contents
+
+- [Overview](#verifying-mathematical-reasoning-for-reinforcement-learning-pitfalls-of-rule--and-model-based-verifiers)
+- [Main Takeaways](#-main-takeaways)
+- [When Good Verifiers Go Bad: Reward Hacking in RL Training](#-when-good-verifiers-go-bad-reward-hacking-in-rl-training)
+  - [Probing Verifier Robustness](#️-probing-verifier-robustness)
+  - [Verifier Vulnerability Analysis](#-verifier-vulnerability-analysis)
+- [Model Checkpoints](#-model-checkpoints)
+- [Quick Start for RL Training](#-quick-start-for-rl-training)
+- [Citation](#-citation)
+- [Acknowledgement](#-acknowledgement)
 
 
 # 🚩 Main Takeaways
@@ -43,7 +54,9 @@ Reward hacking arises when a policy model learns to exploit verifier weaknesses 
 
 ## 🛡️ Probing Verifier Robustness
 
-We design and release a **"Hacking Dataset"** of 13+ adversarial patterns (e.g., gibberish, HTML tags, empty symbols) to evaluate verifier robustness. Key findings:
+We design and release a **"Hacking Dataset"** of 13+ adversarial patterns (e.g., gibberish, HTML tags, empty symbols) to evaluate verifier robustness. The dataset is available at [rl-verifier-pitfalls_hacking_data](https://huggingface.co/datasets/hkust-nlp/rl-verifier-pitfalls_hacking_data).
+
+Key findings:
 
 - Most model-based verifiers are vulnerable to even the simplest hacking patterns, e.g., gibberish text and empty symbols.
 
@@ -71,7 +84,7 @@ The table below shows success rates (%) of representative hacking patterns again
 
 
 
-# Model Checkpoints
+# 💾 Model Checkpoints
 We are releasing our customized verifier, [R1-Distill-Verifier-1.5B](https://huggingface.co/hkust-nlp/R1-Distill-Verifier-1.5B), as part of our open-source effort.
 
 Additionally, we are open-sourcing multiple model checkpoints trained with different verifier configurations. You can access them via the links below:
@@ -86,7 +99,7 @@ Additionally, we are open-sourcing multiple model checkpoints trained with diffe
 All these models are also in our [Huggingface Collection](https://huggingface.co/collections/hkust-nlp/rl-verifier-pitfalls-68329f54bd8fd397534bfe66). 
 
 
-# Quick Start
+# 🚀 Quick Start for RL Training
 
 
 ### Installation
@@ -158,6 +171,7 @@ bash eval_math_nodes.sh \
     --n_sampling 1 \
     --convert_model true
 ```
+
 
 
 # Citation
