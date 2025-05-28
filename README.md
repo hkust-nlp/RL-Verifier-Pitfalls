@@ -54,7 +54,7 @@ Reward hacking arises when a policy model learns to exploit verifier weaknesses 
 
 ### 🛡️ Probing Verifier Robustness
 
-We design and release a **"Hacking Dataset"** of 13+ adversarial patterns (e.g., gibberish, HTML tags, empty symbols) to evaluate verifier robustness. The dataset is available at [rl-verifier-pitfalls_hacking_data](https://huggingface.co/datasets/hkust-nlp/rl-verifier-pitfalls_hacking_data).
+We design and release a **"Hacking Dataset"** of 13 adversarial patterns (e.g., gibberish, HTML tags, empty symbols) to evaluate verifier robustness. The dataset is available at [rl-verifier-pitfalls_hacking_data](https://huggingface.co/datasets/hkust-nlp/rl-verifier-pitfalls_hacking_data).
 
 Key findings:
 
