@@ -2,7 +2,7 @@
 
 # Pitfalls of Rule- and Model-based Verifiers: A Case Study on Mathematical Reasoning
 
-[![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2503.18892)  [![Hugging Face](https://img.shields.io/badge/verifier_pitfalls-fcd022?style=for-the-badge&logo=Huggingface&logoColor=000)](https://huggingface.co/collections/hkust-nlp/rl-verifier-pitfalls-68329f54bd8fd397534bfe66)
+[![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2505.22203)  [![Hugging Face](https://img.shields.io/badge/verifier_pitfalls-fcd022?style=for-the-badge&logo=Huggingface&logoColor=000)](https://huggingface.co/collections/hkust-nlp/rl-verifier-pitfalls-68329f54bd8fd397534bfe66)
 
 </div>
 
@@ -179,7 +179,15 @@ bash eval_math_nodes.sh \
 If you find this work helpful, please consider citing us:
 
 ```bibtex
-xxxx
+@misc{huang2025pitfallsrulemodelbasedverifiers,
+      title={Pitfalls of Rule- and Model-based Verifiers -- A Case Study on Mathematical Reasoning}, 
+      author={Yuzhen Huang and Weihao Zeng and Xingshan Zeng and Qi Zhu and Junxian He},
+      year={2025},
+      eprint={2505.22203},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2505.22203}, 
+}
 ```
 
 
