@@ -1,6 +1,6 @@
 <div align="center">
 
-# Pitfalls of Rule- and Model-based Verifiers: A Case Study on Mathematical Reasoning
+# From Accuracy to Robustness: A Study of Rule- and Model-based Verifiers in Mathematical Reasoning.
 
 [![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2505.22203)  [![Hugging Face](https://img.shields.io/badge/verifier_pitfalls-fcd022?style=for-the-badge&logo=Huggingface&logoColor=000)](https://huggingface.co/collections/hkust-nlp/rl-verifier-pitfalls-68329f54bd8fd397534bfe66)
 
