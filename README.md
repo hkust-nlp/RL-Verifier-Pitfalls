@@ -8,16 +8,17 @@
 
 
 
-This repo contains the resources for the paper "Pitfalls of Rule- and Model-based Verifiers: A Case Study on Mathematical Reasoning."
+This repo contains the resources for the paper "From Accuracy to Robustness: A Study of Rule- and Model-based Verifiers in Mathematical Reasoning."
 
-In this paper, we investigate the reliability of verification systems used in reinforcement learning for mathematical reasoning tasks. Specifically, we analyze the limitations of both rule-based and model-based verifiers, which are commonly used to provide reward signals in reinforcement learning with verifiable rewards (RLVR). We show that rule-based verifiers, while precise, often suffer from high false negative rates, especially as model outputs become more diverse or expressive. On the other hand, model-based verifiers, though more flexible and accurate in static settings, are vulnerable to reward hacking during dynamic RL training, where models exploit verifier weaknesses to gain unearned rewards.
+In this work, we take mathematical reasoning as a case study and conduct a comprehensive analysis of various verifiers in both static evaluation and RL training scenarios. First, we find that current open-source rule-based verifiers often fail to recognize equivalent answers. Subsequently, we investigate model-based verifiers as a potential solution to address these limitations. While the static evaluation shows that model-based verifiers achieve significantly higher verification accuracy, further analysis and RL results imply that they are highly susceptible to hacking,  where they misclassify certain patterns in responses as correct, particularly after fine-tuning. 
+
 
 
 <div align="center">
 <img src="assets/overview.png" width="720" alt="overview">
 </div>
 
-> Evaluation accuracy (**Left**) and Reward (**Right**) using different verifiers during RL training. In the **Right**, the "Training rewards" are from the verifier, while the "Oracle rewards" are from GPT-4.
+> Evaluation accuracy (**Left**) and Reward (**Right**) using different verifiers during RL training. In the **Right**, the "Training rewards" are from the verifier, while the "Oracle rewards" are from GPT-4o.
 
 ## Table of Contents
 
@@ -33,7 +34,7 @@ In this paper, we investigate the reliability of verification systems used in re
 
 
 ## 🚩 Main Takeaways
-Our study reveals critical limitations in both rule-based and model-based verifiers for RL in mathematical reasoning:
+Our study reveals unique challenges in both rule-based and model-based verifiers for RL in mathematical reasoning:
 
 * Rule-based verifiers achieve near-perfect precision but suffer from low recall. They fail to recognize mathematically correct answers expressed in varied formats — causing false negatives that hinder policy learning, especially when verifying advance models like R1-Distilled-Qwen. 
 
@@ -180,7 +181,7 @@ If you find this work helpful, please consider citing us:
 
 ```bibtex
 @misc{huang2025pitfallsrulemodelbasedverifiers,
-      title={Pitfalls of Rule- and Model-based Verifiers -- A Case Study on Mathematical Reasoning}, 
+      title={From Accuracy to Robustness: A Study of Rule- and Model-based Verifiers in Mathematical Reasoning}, 
       author={Yuzhen Huang and Weihao Zeng and Xingshan Zeng and Qi Zhu and Junxian He},
       year={2025},
       eprint={2505.22203},
